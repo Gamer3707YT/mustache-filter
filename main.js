@@ -1,20 +1,22 @@
 function preload(){
+    mustache = loadImage("https://i.postimg.cc/25sPxGdK/curly-mustache-isolated-transparent-background-png-psd-888962-861.jpg")
 }
 noseX = 0;
 noseY = 0;
 
 function setup(){  
     canvas = createCanvas(300, 300);
-        canvas.center();
-       video = createCapture(VIDEO);
-        video.size(300, 300);
-        video.hide();
-        
-        poseNet = ml5.poseNet(video, modelLoaded);
-        poseNet.on('pose', gotPoses);    
+    canvas.center();
+    video = createCapture(VIDEO);
+    video.size(300, 300);
+    video.hide();
+    
+    poseNet = ml5.poseNet(video, modelLoaded);
+    poseNet.on('pose', gotPoses);
 }
 function draw() {
     image(video, 0, 0, 300, 300);
+    image(mustache, noseX, noseY, 30, 30);
 }
 
 
